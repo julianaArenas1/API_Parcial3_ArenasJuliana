@@ -19,7 +19,7 @@ namespace TaskApi.DAL
         }
         #region DbSets
   
-        public DbSet<Task1> Tasks { get; set; }
+        public DbSet<Task1> Tasks1 { get; set; }
   
         #endregion
     }

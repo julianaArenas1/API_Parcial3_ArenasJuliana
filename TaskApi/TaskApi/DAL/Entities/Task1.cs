@@ -4,6 +4,7 @@ namespace TaskApi.DAL.Entities
 {
     public class Task1 : AuditBase
     {
+
         [Display(Name = "Título")]
         [MaxLength(50, ErrorMessage = "El campo {0} debe tener máximo {1} caracteres.")]
         [Required(ErrorMessage = "El campo {0} es obligatorio")]
@@ -15,10 +16,10 @@ namespace TaskApi.DAL.Entities
 
         [Display(Name = "Completado")]
         [Required(ErrorMessage = "El campo {0} es obligatorio")]
-        public string IsCompleted { get; set; }
+        public bool IsCompleted { get; set; }
 
         [Display(Name = "Prioridad")]
         [Required(ErrorMessage = "El campo {0} es obligatorio")]
-        public string Priority { get; set; }
+        public int Priority { get; set; }
     }
 }
