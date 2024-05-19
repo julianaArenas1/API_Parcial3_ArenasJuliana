@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using TaskApi.DAL;
 using TaskApi.DAL.Entities;
 using TaskApi.Domain.Interfaces;
-
+using System.Linq;
 namespace TaskApi.Domain.Services
 {
     public class Task1Service : ITask1Service
@@ -23,7 +23,8 @@ namespace TaskApi.Domain.Services
         { 
             try
             {
-                var tasks1 = await _context.Tasks1.ToListAsync();
+                var tasks1 = await _context.Tasks1
+                    .OrderBy(t => t.Priority == "High" ? 1 : (t.Priority == "Medium" ? 2 : 3)).ToListAsync();
                 return tasks1;
             }
             catch (DbUpdateException dbUpdateException)
@@ -71,7 +72,7 @@ namespace TaskApi.Domain.Services
             }
         }
 
-        public async Task<Task1> EditCountryAsync(Task1 task1)
+        public async Task<Task1> EditTaskAsync(Task1 task1)
         {
             try
             {
@@ -110,7 +111,7 @@ namespace TaskApi.Domain.Services
             }
             catch (DbUpdateException dbUpdateException)
             {
-                throw new Exception(dbUpdateException.InnerException?.Message ?? dbUpdateException.Message);
+                throw new Exception(dbUpdateException.InnerException?.Message ?? dbUpdateException.Message + "La tarea aún está sin completar"); 
             }
         }
     }

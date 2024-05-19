@@ -20,6 +20,6 @@ namespace TaskApi.DAL.Entities
 
         [Display(Name = "Prioridad")]
         [Required(ErrorMessage = "El campo {0} es obligatorio")]
-        public int Priority { get; set; }
+        public string Priority { get; set; }
     }
 }
