@@ -2,7 +2,7 @@
 
 namespace TaskApi.DAL.Entities
 {
-    public class Task : AuditBase
+    public class Task1 : AuditBase
     {
         [Display(Name = "Título")]
         [MaxLength(50, ErrorMessage = "El campo {0} debe tener máximo {1} caracteres.")]
