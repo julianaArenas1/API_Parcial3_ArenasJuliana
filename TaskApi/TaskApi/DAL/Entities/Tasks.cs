@@ -1,6 +1,6 @@
 ﻿namespace TaskApi.DAL.Entities
 {
-    public class Task
+    public class Tasks
     {
     }
 }
